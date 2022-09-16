@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="kr.kro.fatcats.sdkversiontest.MainFragment"
+        android:label="ExerciseWaitFragment"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="kr.kro.fatcats.sdkversiontest.FirstFragment"
+        android:label="ExerciseWaitFragment"
+        tools:layout="@layout/fragment_first" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="kr.kro.fatcats.sdkversiontest.SecondFragment"
+        android:label="ExerciseWaitFragment"
+        tools:layout="@layout/fragment_second" />
+    <dialog
+        android:id="@+id/firstDialog"
+        android:name="kr.kro.fatcats.sdkversiontest.FirstDialog"
+        android:label="ExerciseWaitFragment"
+        tools:layout="@layout/dialog_first" />
+    <dialog
+        android:id="@+id/secondDialog"
+        android:name="kr.kro.fatcats.sdkversiontest.SecondDialog"
+        android:label="ExerciseWaitFragment"
+        tools:layout="@layout/dialog_second" />
+
+</navigation>

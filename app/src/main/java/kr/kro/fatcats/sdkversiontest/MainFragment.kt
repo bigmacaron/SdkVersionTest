@@ -5,15 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kr.kro.fatcats.sdkversiontest.databinding.FragmentMainBinding
 
 @AndroidEntryPoint
-class MainFragment : Fragment(){
+class MainFragment : BaseFragment(){
 
     private lateinit var binding: FragmentMainBinding
     private val viewModel : MainViewModel by activityViewModels()
@@ -25,13 +25,13 @@ class MainFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentMainBinding.inflate(requireActivity().layoutInflater)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         lifecycleScope.launch {
 
             Log.e("TAG", "onViewCreated: 진입 ", )
@@ -42,6 +42,10 @@ class MainFragment : Fragment(){
         lifecycleScope.launchWhenResumed {
             viewModel.collectTest()
         }
+        binding.testButton.setOnClickListener {
+            findNavController().navigate(R.id.firstFragment)
+        }
+
 
     }
 }

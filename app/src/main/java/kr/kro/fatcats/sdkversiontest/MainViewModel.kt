@@ -11,7 +11,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val mainRepository: MainRepository
+    private val mainRepository: MainRepository,
+    private val anotherRepository : AnotherRepository
 ) : ViewModel() {
 
     private val _contentData = MutableStateFlow<String?>(String())
